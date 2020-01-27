@@ -1,7 +1,8 @@
 import subprocess as sp
+from decimal import Decimal
 import os
 
-USER = "djb236"
+USER = "da330"
 
 if (USER == "da330"):
 	RES_PATH = "/home/" + USER + "/Dedalus/figs_rot_new_code"
@@ -9,6 +10,12 @@ elif (USER == "nbh202"):
 	RES_PATH = "/home/" + USER + "/dedalus/all/figs_rot_new_code"
 elif (USER == "djb236"):
 	RES_PATH = "/home/" + USER + "/TESTS"
+
+def to_exp(n):
+	return '%.2E' % Decimal(n)
+
+def to_2dp(n):
+	return '%.2f' % n
 
 def get_no(param, str):
 	rows = str.split("\n")
@@ -27,8 +34,8 @@ def find_extras(row):
 		print(row + ": invalid row")
 		exit(1)
 	Np, Ra, Ta, Phi, temp = row.split(",")
-	E_def, Np = get_results(open(RES_PATH+ "/Np=" + str(int(Np)) + "/Ra=" + str(int(float(Ra))) + "/Ta=" + str(int(float(Ta))) + "/Phi=" + str(int(Phi)) + "/results.txt", "r"))
-	return E_def + "," + Np
+	E_def, Np = get_results(open(RES_PATH+ "/Np=" + str(to_2dp(float(Np))) + "/Ra=" + str(to_exp(Ra)) + "/Ta=" + str(to_exp(Ta)) + "/Phi=" + str(Phi) + "/results.txt", "r"))
+	return str(E_def) + "," + str(Np)
 
 def dir2num(str, param):
 	return str.split(param + "=")[1]
