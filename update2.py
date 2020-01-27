@@ -97,11 +97,10 @@ for row in poss_txt.split("\n"):
         poss.append(_param(raw_param[0], raw_param[1], raw_param[2], raw_param[3], 0))
     i += 1
 
-#print_list(poss)
-
 poss_str = ""
-for item in poss:
-    poss_str += item_str(item, False) + "\n"
+ss_r = open("spreadsheet.csv", "r")
+for item in ss_r.split("\n"):
+    poss_str += item + "\n"
 
 for complete in done:
     poss_str = poss_str.replace(item_str(complete, False), item_str(complete, True))
