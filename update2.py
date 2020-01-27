@@ -108,6 +108,8 @@ for line in ss_r_txt.split("\n"):
     if (len(params) >= 4):
         poss_str += params[0] + "," + params[1] + "," + params[2] + "," + params[3] + "\n"
 
+print(poss_str)
+
 for complete in done:
     print("Replacing " + item_str(complete, False) + " with " + item_str(complete, True))
     poss_str = poss_str.replace(item_str(complete, False), item_str(complete, True))
