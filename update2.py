@@ -106,6 +106,6 @@ for item in poss:
 for complete in done:
     poss_str = poss_str.replace(item_str(complete, False), item_str(complete, True))
 
-ss_op = open("spreadsheet.dat", "w")
+ss_op = open("spreadsheet.csv", "w")
 ss_op.write(poss_str)
 ss_op.close()
