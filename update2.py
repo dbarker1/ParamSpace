@@ -3,7 +3,7 @@ from decimal import Decimal
 import subprocess as sp
 import sys
 
-USER = sys.argv[1]
+USER = sys.argv[2]
 
 if (USER == "da330"):
     RES_PATH = "/home/" + USER + "/Dedalus/figs_rot_new_code"
