@@ -101,20 +101,14 @@ ss_r = open("spreadsheet.csv", "r")
 ss_r_txt = ss_r.read()
 ss_r.close()
 
-#poss_str = ""
-#i = 0
-#for line in ss_r_txt.split("\n"):
-#    params = line.split(",")
-#    if (len(params) >= 4):
-#        poss_str += params[0] + "," + params[1] + "," + params[2] + "," + params[3] + "\n"
-
 poss_str = ss_r_txt
-print(poss_str)
 
 for complete in done:
     print("Replacing " + item_str(complete, False) + " with " + item_str(complete, True))
     tmp_str = poss_str.replace(item_str(complete, False), item_str(complete, True))
     poss_str = tmp_str
+
+print(poss_str)
 
 ss_op = open("spreadsheet.csv", "w")
 ss_op.write(poss_str)
