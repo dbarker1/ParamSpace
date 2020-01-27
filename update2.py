@@ -25,9 +25,15 @@ def find_params(str, params):
 			i += 1
 	return retval
 
+def item_str(item, extras):
+    retval = item.Np + "," + item.Ra + "," + item.Ta + "," + item.Phi
+    if extras == True:
+        retval += "," + item.E_def + "," + USER
+    return retval
+
 def print_list(list):
 	for item in list:
-		print(item.Np, item.Ra, item.Ta, item.Phi, item.E_def)
+        print(item_str(item, True))
 
 def to_2dp(n):
 	num = float(n)
@@ -87,46 +93,17 @@ for row in poss_txt.split("\n"):
 		poss.append(_param(raw_param[0], raw_param[1], raw_param[2], raw_param[3], 0))
 	i += 1
 
+poss_str = ""
+for item in poss:
+    poss_str += item_str(item, False) + "\n"
+
 ss_r = open("spreadsheet.dat", "r")
 ss_r_txt = ss_r.read()
 ss_r.close()
-i = 0
-leave_no = []
-leave_line = []
-for line in ss_r_txt.split("\n"):
-	if (len(line.split(",")) > 5):
-		leave_no.append(i)
-		leave_line.append(line)
-		print(i, line)
-	i += 1
+
+for complete in done:
+    poss_str.replace(item_str(complete, False), item_str(complete, True))
 
 ss_op = open("spreadsheet.dat", "w")
-
-i = 0
-leave = 0
-for possible in poss:
-	poss_path = make_folder(possible.Np, possible.Ra, possible.Ta, possible.Phi)
-
-	if i in leave_no:
-		print(i)
-		ss_op.write(leave_line[leave] + "\n")
-		leave += 1
-		continue
-
-	found = 1
-
-	for complete in done:
-		comp_path = make_folder(complete.Np, complete.Ra, complete.Ta, complete.Phi)
-		if (comp_path == poss_path):
-			to_write = complete.Np + "," + complete.Ra + "," + complete.Ta + "," + complete.Phi + "," + complete.E_def + "," + USER + "\n"
-			found = 0
-			break
-
-	if (found == 1):
-		to_write = possible.Np + "," + possible.Ra + "," + possible.Ta + "," + possible.Phi + "," + possible.E_def + "\n"
-
-	ss_op.write(to_write)
-
-	i += 1
-
+ss_op.writr(poss_str)
 ss_op.close()
