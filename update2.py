@@ -23,7 +23,7 @@ def find_params(str, params):
             if (row == param):
                 retval.append(rows[i+1])
             i += 1
-            return retval
+    return retval
 
 def item_str(item, extras):
     retval = item.Np + "," + item.Ra + "," + item.Ta + "," + item.Phi
