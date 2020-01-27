@@ -99,8 +99,9 @@ for row in poss_txt.split("\n"):
 
 poss_str = ""
 ss_r = open("spreadsheet.csv", "r")
-for item in ss_r.split("\n"):
+for item in ss_r.read().split("\n"):
     poss_str += item + "\n"
+ss_r.close()
 
 for complete in done:
     poss_str = poss_str.replace(item_str(complete, False), item_str(complete, True))
