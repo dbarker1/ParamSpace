@@ -97,10 +97,11 @@ poss_str = ""
 for item in poss:
     poss_str += item_str(item, False) + "\n"
 
+print(poss_str)
+
 for complete in done:
     poss_str.replace(item_str(complete, False), item_str(complete, True))
 
-print(poss_str)
 ss_op = open("spreadsheet.dat", "w")
 ss_op.write(poss_str)
 ss_op.close()
