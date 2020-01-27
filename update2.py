@@ -27,7 +27,7 @@ def find_params(str, params):
 
 def item_str(item, extras):
     retval = item.Np + "," + item.Ra + "," + item.Ta + "," + item.Phi
-    if extras == True:
+    if extras:
         retval += "," + item.E_def + "," + USER
     return retval
 
