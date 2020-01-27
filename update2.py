@@ -104,10 +104,9 @@ ss_r.close()
 poss_str = ""
 i = 0
 for line in ss_r_txt.split("\n"):
-    if (line != 0):
-        params = line.split(",")
+    params = line.split(",")
+    if (len(params) >= 4):
         poss_str += params[0] + "," + params[1] + "," + params[2] + "," + params[3] + "\n"
-    i += 1
 
 for complete in done:
     print("Replacing " + item_str(complete, False) + " with " + item_str(complete, True))
