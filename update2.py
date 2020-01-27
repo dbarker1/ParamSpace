@@ -104,8 +104,7 @@ for item in ss_r.read().split("\n"):
 ss_r.close()
 
 for complete in done:
-    if (len(complete.split(",")) < 5):
-        poss_str = poss_str.replace(item_str(complete, False), item_str(complete, True))
+    poss_str = poss_str.replace(item_str(complete, False), item_str(complete, True))
 
 ss_op = open("spreadsheet.csv", "w")
 ss_op.write(poss_str)
