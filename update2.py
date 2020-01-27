@@ -61,10 +61,10 @@ for Np_dir in Np_dirs:
     for Ra_dir in Ra_dirs:
         Ta_dirs = os.listdir(RES_PATH + "/" + Np_dir + "/" + Ra_dir)
         for Ta_dir in Ta_dirs:
-	           Phi_dirs = os.listdir(RES_PATH + "/" + Np_dir + "/" + Ra_dir + "/" + Ta_dir)
-               for Phi_dir in Phi_dirs:
-                   folders.append(make_folder(Np_dir, Ra_dir, Ta_dir, Phi_dir))
-                   found += 1
+            Phi_dirs = os.listdir(RES_PATH + "/" + Np_dir + "/" + Ra_dir + "/" + Ta_dir)
+            for Phi_dir in Phi_dirs:
+                folders.append(make_folder(Np_dir, Ra_dir, Ta_dir, Phi_dir))
+                found += 1
 
 if (found == 0):
     print("No folders found")
