@@ -102,9 +102,12 @@ ss_r_txt = ss_r.read()
 ss_r.close()
 
 poss_str = ""
+i = 0
 for line in ss_r_txt.split("\n"):
-    params = line.split(",")
-    poss_str += params[0] + "," + parmas[1] + "," + params[2] + "," + params[3] + "\n"
+    if (line != 0):
+        params = line.split(",")
+        poss_str += params[0] + "," + params[1] + "," + params[2] + "," + params[3] + "\n"
+    i += 1
 
 for complete in done:
     print("Replacing " + item_str(complete, False) + " with " + item_str(complete, True))
