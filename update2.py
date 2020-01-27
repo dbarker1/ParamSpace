@@ -98,8 +98,13 @@ for row in poss_txt.split("\n"):
     i += 1
 
 ss_r = open("spreadsheet.csv", "r")
-poss_str = ss_r.read()
+ss_r_txt = ss_r.read()
 ss_r.close()
+
+for line in ss_r_txt.split("\n"):
+    params = line.split(",")
+    poss_str += params[0] + "," + parmas[1] + "," + params[2] + "," + params[3] + "\n"
+
 
 for complete in done:
     print("Replacing " + item_str(complete, False) + " with " + item_str(complete, True))
