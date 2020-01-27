@@ -1,8 +1,9 @@
 import os
 from decimal import Decimal
 import subprocess as sp
+import sys
 
-USER = "da330"
+USER = sys.argv[1]
 
 if (USER == "da330"):
     RES_PATH = "/home/" + USER + "/Dedalus/figs_rot_new_code"
@@ -10,6 +11,9 @@ elif (USER == "nbh202"):
     RES_PATH = "/home/" + USER + "/dedalus/all/figs_rot_new_code"
 elif (USER == "djb236"):
     RES_PATH = "/home/" + USER + "/TESTS"
+else:
+    print("Either choose nbh202 or da330")
+    exit(1)
 
 def make_folder(Np, Ra, Ta, Phi):
     return RES_PATH + "/" + Np + "/" + Ra + "/" + Ta + "/" + Phi
