@@ -91,7 +91,7 @@ for row in poss_txt.split("\n"):
     if (i != 0):
         raw_param = row.split(",")
         poss.append(_param(raw_param[0], raw_param[1], raw_param[2], raw_param[3], 0))
-        i += 1
+    i += 1
 
 print_list(poss)
 
