@@ -105,5 +105,5 @@ for complete in done:
     poss_str.replace(item_str(complete, False), item_str(complete, True))
 
 ss_op = open("spreadsheet.dat", "w")
-ss_op.writr(poss_str)
+ss_op.write(poss_str)
 ss_op.close()
