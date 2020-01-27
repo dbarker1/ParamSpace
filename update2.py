@@ -112,7 +112,8 @@ print(poss_str)
 
 for complete in done:
     print("Replacing " + item_str(complete, False) + " with " + item_str(complete, True))
-    poss_str = poss_str.replace(item_str(complete, False), item_str(complete, True))
+    tmp_str = poss_str.replace(item_str(complete, False), item_str(complete, True))
+    poss_str = tmp_str
 
 ss_op = open("spreadsheet.csv", "w")
 ss_op.write(poss_str)
