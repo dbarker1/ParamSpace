@@ -97,10 +97,8 @@ for row in poss_txt.split("\n"):
         poss.append(_param(raw_param[0], raw_param[1], raw_param[2], raw_param[3], 0))
     i += 1
 
-poss_str = ""
 ss_r = open("spreadsheet.csv", "r")
-for item in ss_r.read().split("\n"):
-    poss_str += item + "\n"
+poss_str = ss_r.read()
 ss_r.close()
 
 for complete in done:
